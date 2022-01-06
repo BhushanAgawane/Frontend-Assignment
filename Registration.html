@@ -1,0 +1,70 @@
+<html>
+  <body>
+      <table align='center'>
+          <tr>
+              <td>
+        <label>First Name</label>
+          </td>
+          <td><input type="text" id="first_name"></td>
+          </tr>
+
+          <tr>
+            <td>
+      <label>Last Name</label>
+        </td>
+        <td><input type="text" id="last_name"></td>
+        </tr>
+
+        <tr>
+            <td>
+      <label>Username</label>
+        </td>
+        <td><input type="text" id="username"></td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+      <label>Password</label>
+        </td>
+        <td><input type="password" id="password"></td>
+        </tr>
+        
+        <tr>
+            <td>
+                <button id="save">save</button>
+            </td>
+        </tr>
+        
+          </table>
+          <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script>
+      $("#save").click(function()
+      {
+      var data={
+          first_name:$("#first_name").val(),
+          last_name:$("#last_name").val(),
+          email:$("#username").val(),
+          password:$("#password").val(),
+          
+      }
+      $.ajax({
+		type: "GET",
+        dataType:'json',
+		url: "https://reqres.in/api/register",
+		data: data,
+		success: function(response) {
+	    alert("Saved Successfully")
+        location.reload()
+	
+		},
+		error: function() {
+			
+		}
+	});
+})
+    </script>
+        </body>
+
+</html>
